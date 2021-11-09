@@ -1,0 +1,19 @@
+{
+  "name": "jobhunting",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/benilyxdd/jobHunting.git"
+  },
+  "author": "benily <leekwokhinben@gmail.com>",
+  "license": "MIT",
+  "description": "web scraping to collect newest job from listed companyies website.",
+  "bugs": {
+    "url": "https://github.com/benilyxdd/jobHunting/issues"
+  },
+  "homepage": "https://github.com/benilyxdd/jobHunting#readme",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
