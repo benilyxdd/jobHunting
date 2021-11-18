@@ -10,4 +10,19 @@ module.exports = {
     filename: "[name].[contenthash].js",
     clean: true,
   },
+  // loader
+  module: {
+    rules: [
+      {
+        test: /\.m?js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: "babel-loader",
+          options: {
+            presets: ["@babel/preset-env"],
+          },
+        },
+      },
+    ],
+  },
 };
