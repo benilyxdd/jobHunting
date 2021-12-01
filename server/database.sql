@@ -1,9 +1,9 @@
 CREATE DATABASE IF NOT EXIST jobs;
 
 /* uuid generator */
-CREATE EXTENSION IF NOT EXIST "uuid-ossp"
+CREATE EXTENSION IF NOT EXIST "uuid-ossp";
 
-CREATE OR REPLACE TABLE job(
+CREATE TABLE job(
 	/*
 		auto generated properties
 	*/
