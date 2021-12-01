@@ -1,12 +1,24 @@
-CREATE DATABASE jobs;
+CREATE DATABASE IF NOT EXIST jobs;
 
+/* uuid generator */
 CREATE EXTENSION IF NOT EXIST "uuid-ossp"
 
-CREATE TABLE job(
-	job_id uuid PRIMARY KEY DEFAULT uuid_generate_v4 (),
-	job_title VARCHAR(255) NOT NULL,
-	company_name VARCHAR(255) NOT NULL,
-	location VARCHAR(255) NOT NULL,
-	job_link TEXT NOT NULL,
-	created_at TIMESTAMP WITH TIME ZONE DEFAULT current_timestamp
+CREATE OR REPLACE TABLE job(
+	/*
+		auto generated properties
+	*/
+	id uuid PRIMARY KEY DEFAULT uuid_generate_v4 (),
+	created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+
+	/*
+		scraped properties
+	*/
+	company_name VARCHAR(255) NOT NULL, /* eg: Google */
+	description TEXT NOT NULL,
+	link TEXT NOT NULL, /* eg: https://career.google.com/ */
+	nice_to_have TEXT[],
+	requirments TEXT[] NOT NULL,
+	responsibilities TEXT[] NOT NULL,
+	title VARCHAR(255) NOT NULL, /* eg: Junior frontend developer */
+	location VARCHAR(255) NOT NULL  /* eg: Remote / US */
 );
