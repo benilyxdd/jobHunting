@@ -13,7 +13,7 @@ const jobTitle = [
 ];
 
 const jobSearchRegex =
-	/^((frontend|front end|backend|back end|software|javascript|web)\s(developer|engineer))|^(junior|(?!senior)|(?!lead))\s(frontend|front end|backend|back end|software|javascript|web)\s(developer|engineer)/;
+	/^((frontend|front end|backend|back end|software|javascript|web|fullstack|full stack)\s(developer|engineer))|^(junior|(?!senior)|(?!lead))\s(frontend|front end|backend|back end|software|javascript|web|fullstack|full stack)\s(developer|engineer)/;
 
 const filterJobList = (list) =>
 	list.filter((job) => job.title.toLowerCase().match(jobSearchRegex));
