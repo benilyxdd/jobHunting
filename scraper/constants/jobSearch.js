@@ -15,4 +15,7 @@ const jobTitle = [
 const jobSearchRegex =
 	/^((frontend|front end|backend|back end|software|javascript|web)\s(developer|engineer))|^(junior|(?!senior)|(?!lead))\s(frontend|front end|backend|back end|software|javascript|web)\s(developer|engineer)/;
 
-module.exports = jobSearchRegex;
+const filterJobList = (list) =>
+	list.filter((job) => job.title.toLowerCase().match(jobSearchRegex));
+
+module.exports = filterJobList;
