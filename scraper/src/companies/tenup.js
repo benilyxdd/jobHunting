@@ -1,6 +1,6 @@
 const puppeteer = require("puppeteer");
 const fs = require("fs");
-const jobSearchRegex = require("../../constants/jobSearch");
+const filterJobList = require("../../constants/jobFilter");
 
 const link = "https://10up.com/careers/";
 
@@ -10,7 +10,7 @@ const tenupSearch = async () => {
 
 		// 10up
 		const page = await browser.newPage();
-		await page.goto(link);
+		await page.goto(link, { waitUntil: "networkidle2", timeout: 12000 });
 
 		const jobs = await page.$$eval(
 			"#open-positions > div > div > div > a",
@@ -27,9 +27,7 @@ const tenupSearch = async () => {
 			}
 		);
 		await page.close();
-		const filteredJobs = jobs.filter((job) =>
-			job.title.toLowerCase().match(jobSearchRegex)
-		);
+		const filteredJobs = filterJobList(jobs);
 		const data = [];
 		const pages = filteredJobs.map(async (job, index) => {
 			const page2 = await browser.newPage();
@@ -64,13 +62,13 @@ const tenupSearch = async () => {
 		});
 
 		Promise.all(pages).then(() => {
-			fs.writeFile("10up.json", JSON.stringify(data), (err) =>
-				console.error(err)
-			);
+			fs.writeFile("10up.json", JSON.stringify(data), () => {
+				console.log("10up: file written");
+			});
 			browser.close();
 		});
 	} catch (err) {
-		console.error(err);
+		console.error(`tenup: error`);
 	}
 };
 
