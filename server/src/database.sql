@@ -18,7 +18,7 @@ CREATE TABLE job(
 	link TEXT NOT NULL, /* eg: https://career.google.com/ */
 	nice_to_have TEXT[],
 	requirments TEXT[] NOT NULL,
-	responsibilities TEXT[] NOT NULL,
+	responsibilities TEXT[],
 	title VARCHAR(255) NOT NULL, /* eg: Junior frontend developer */
 	location VARCHAR(255) NOT NULL  /* eg: Remote / US */
 );
