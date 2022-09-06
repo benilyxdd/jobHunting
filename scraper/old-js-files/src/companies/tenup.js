@@ -1,6 +1,6 @@
 const puppeteer = require("puppeteer");
 const fs = require("fs");
-const filterJobList = require("../../constants/jobFilter");
+const filterJobList = require("../../../constants/jobFilter");
 
 const link = "https://10up.com/careers/";
 
