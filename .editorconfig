@@ -14,7 +14,7 @@ trim_trailing_whitespace = false
 [*.bat]
 end_of_line = crlf
 
-[{package.json,.travis.yml,webpack.config.js,babel.config.js}]
+[{package.json,.travis.yml,webpack.config.js,babel.config.js,tsconfig.json,.eslintrc,.eslintignore}]
 indent_style = space
 indent_size = 2
 

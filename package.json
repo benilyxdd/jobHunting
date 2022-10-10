@@ -8,10 +8,14 @@
   "scripts": {
     "dev": "nodemon",
     "build": "rimraf ./build && tsc",
-    "start": "yarn build && node build/index.js"
+    "start": "yarn build && node build/index.js",
+    "lint": "eslint . --ext .ts --fix"
   },
   "devDependencies": {
     "@types/node": "^18.8.3",
+    "@typescript-eslint/eslint-plugin": "^5.39.0",
+    "@typescript-eslint/parser": "^5.39.0",
+    "eslint": "^8.25.0",
     "nodemon": "^2.0.20",
     "rimraf": "^3.0.2",
     "ts-node": "^10.9.1",
