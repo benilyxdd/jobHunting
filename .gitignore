@@ -1,11 +1,2 @@
-# packages
-node_modules
-
-# typescript
-bin
-
-# ???
-.DS_Store
-
-# env
-.env
+/node_modules
+/build
