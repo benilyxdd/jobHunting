@@ -11,14 +11,19 @@
     "start": "yarn build && node build/index.js",
     "lint": "eslint . --ext .ts --fix",
     "i": "./scripts/install-with-types.sh",
-    "rm": "./scripts/uninstall-with-types.sh"
+    "rm": "./scripts/uninstall-with-types.sh",
+    "test": "mocha -r ts-node/register src/**/*.test.ts"
   },
   "devDependencies": {
+    "@types/chai": "^4.3.3",
     "@types/express": "^4.17.14",
+    "@types/mocha": "^10.0.0",
     "@types/node": "^18.8.3",
     "@typescript-eslint/eslint-plugin": "^5.39.0",
     "@typescript-eslint/parser": "^5.39.0",
+    "chai": "^4.3.6",
     "eslint": "^8.25.0",
+    "mocha": "^10.0.0",
     "nodemon": "^2.0.20",
     "rimraf": "^3.0.2",
     "ts-node": "^10.9.1",
