@@ -16,7 +16,6 @@
     "no-template-curly-in-string": "error",
     "arrow-body-style": ["error", "as-needed"],
     "block-scoped-var": "error",
-    "capitalized-comments": ["error", "always"],
     "default-case": "error",
     "eqeqeq": "error",
     "no-useless-rename": ["error"],
