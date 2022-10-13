@@ -3,7 +3,7 @@ import { describe, it } from "mocha";
 
 import { encodeSearchURL } from ".";
 
-describe("Google Service", () => {
+describe("Google Utils", () => {
 	describe("Function", () => {
 		it("encodeSearchURL", () => {
 			const URL = "https://google.com/";
