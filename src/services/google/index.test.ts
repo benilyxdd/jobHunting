@@ -1,6 +1,6 @@
 import { expect } from "chai";
+import _ from "lodash";
 import { describe, it } from "mocha";
-import _ from 'lodash';
 
 import { getMaxPageByKeyword } from "./index";
 
