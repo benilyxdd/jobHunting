@@ -1,7 +1,11 @@
 import { expect } from "chai";
 import { describe, it } from "mocha";
 
-import { encodeAllURIComponent, extractNumberFromText } from ".";
+import {
+	encodeAllURIComponent,
+	extractNumberFromText,
+	generateURLsByPageNumber,
+} from ".";
 
 describe("Utils", () => {
 	describe("Function", () => {
@@ -34,6 +38,23 @@ describe("Utils", () => {
 				const testResult = extractNumberFromText(text, idx);
 				expect(testResult).to.be.deep.equal(solutions[idx]);
 			});
+		});
+
+		it("generateURLsByPageNumber", () => {
+			const baseURL = "https://google.com/search?q=qwe";
+			const numberOfPages = 5;
+			const expectedArray = [
+				"https://google.com/search?q=qwe&page=1",
+				"https://google.com/search?q=qwe&page=2",
+				"https://google.com/search?q=qwe&page=3",
+				"https://google.com/search?q=qwe&page=4",
+				"https://google.com/search?q=qwe&page=5",
+			];
+
+			const testResults = generateURLsByPageNumber(baseURL, numberOfPages);
+			testResults.map((testResult, idx) =>
+				expect(testResult).to.be.equal(expectedArray[idx])
+			);
 		});
 	});
 });

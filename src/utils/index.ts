@@ -18,3 +18,11 @@ export const extractNumberFromText = (
 
 	return numberArray[ordinal];
 };
+
+export const generateURLsByPageNumber = (
+	baseURL: string,
+	page: number
+): Array<string> =>
+	Array(page)
+		.fill(0)
+		.map((_, idx) => `${baseURL}&page=${idx + 1}`);
