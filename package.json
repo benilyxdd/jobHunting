@@ -12,7 +12,7 @@
     "lint": "eslint . --ext .ts --fix",
     "i": "./scripts/install-with-types.sh",
     "rm": "./scripts/uninstall-with-types.sh",
-    "test": "mocha -r ts-node/register 'src/**/*.test.ts' --timeout 10000"
+    "test": "mocha -r ts-node/register 'src/**/*.test.ts' --timeout 100000"
   },
   "devDependencies": {
     "@types/chai": "^4.3.3",
