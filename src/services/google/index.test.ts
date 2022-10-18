@@ -4,7 +4,11 @@ import { describe, it } from "mocha";
 
 import { generateURLsByPageNumber } from "../../utils";
 import { encodeSearchURL } from "../../utils/google";
-import { getJobsURLFromPages, getMaxPageByKeyword } from "./index";
+import {
+	getJobDetailFromURL,
+	getJobsURLFromPages,
+	getMaxPageByKeyword,
+} from "./index";
 
 describe("Google Services", () => {
 	describe("Function", () => {
@@ -29,6 +33,26 @@ describe("Google Services", () => {
 					/https:\/\/careers\.google\.com\/jobs\/results\/\d+/
 				);
 			});
+		});
+
+		it("getJobDetailFromURL", async () => {
+			const query = "Software Engineer";
+			const baseURL = "https://careers.google.com/jobs/results/";
+			const searchURL = encodeSearchURL(baseURL, { query });
+			const testURLs = await getJobsURLFromPages(
+				generateURLsByPageNumber(searchURL, 1)
+			);
+
+			const testResult = await getJobDetailFromURL(testURLs[0]);
+			expect(testResult).to.have.property('addressCountry');
+			expect(testResult).to.have.property('addressLocality');
+			expect(testResult).to.have.property('addressRegion');
+			expect(testResult).to.have.property('applyLink');
+			expect(testResult).to.have.property('datePosted');
+			expect(testResult).to.have.property('description');
+			expect(testResult).to.have.property('qualifications');
+			expect(testResult).to.have.property('responsibilities');
+			expect(testResult).to.have.property('title');
 		});
 	});
 });
